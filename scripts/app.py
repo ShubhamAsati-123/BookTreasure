@@ -6,9 +6,6 @@ import os
 
 st.title("Book Recommendation System")
 
-# Check the current working directory
-st.write(f"Current working directory: {os.getcwd()}")
-
 # Load the dataset from the correct path
 try:
     # Adjust the path according to the actual deployment directory structure
