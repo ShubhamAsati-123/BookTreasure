@@ -5,7 +5,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # Load the dataset (update the file path)
 try:
-    df = pd.read_csv('dataset/books.csv', encoding='utf-8', on_bad_lines='skip')
+    df = pd.read_csv('./dataset/books.csv', encoding='utf-8', on_bad_lines='skip')
     st.write("Dataset loaded successfully.")
 except Exception as e:
     st.write(f"Error loading dataset: {e}")
