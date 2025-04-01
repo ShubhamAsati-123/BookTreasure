@@ -12,7 +12,7 @@ st.write(f"Current working directory: {os.getcwd()}")
 # Load the dataset from the correct path
 try:
     # Adjust the path according to the actual deployment directory structure
-    df = pd.read_csv('./books.csv', encoding='utf-8', on_bad_lines='skip')
+    df = pd.read_csv('./scripts/books.csv', encoding='utf-8', on_bad_lines='skip')
     st.write("Dataset loaded successfully.")
     
     # Data Cleaning
