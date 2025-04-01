@@ -2,11 +2,16 @@ import streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
 
 st.title("Book Recommendation System")
 
-# Load the dataset directly from the app directory
+# Check the current working directory
+st.write(f"Current working directory: {os.getcwd()}")
+
+# Load the dataset from the correct path
 try:
+    # Adjust the path according to the actual deployment directory structure
     df = pd.read_csv('./books.csv', encoding='utf-8', on_bad_lines='skip')
     st.write("Dataset loaded successfully.")
     
@@ -28,16 +33,12 @@ try:
     # Cosine Similarity Calculation
     def recommend_books(title, n=5):
         try:
-            # Normalize the input title
             normalized_title = title.strip().lower()
-            # Find the book index by checking for substring matches
             matches = df[df['title'].str.contains(normalized_title, na=False)]
             if matches.empty:
                 return "Book not found in dataset."
             book_index = matches.index[0]
-            # Calculate similarity
             cosine_sim = cosine_similarity(features[book_index], features).flatten()
-            # Get top N similar books
             similar_books = cosine_sim.argsort()[-n-1:-1][::-1]
             return df.iloc[similar_books][['title', 'authors']]
         except Exception as e:
