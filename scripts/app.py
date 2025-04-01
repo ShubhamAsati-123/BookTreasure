@@ -7,7 +7,7 @@ st.title("Book Recommendation System")
 
 # Load the dataset directly from the app directory
 try:
-    df = pd.read_csv('books.csv', encoding='utf-8', on_bad_lines='skip')
+    df = pd.read_csv('./books.csv', encoding='utf-8', on_bad_lines='skip')
     st.write("Dataset loaded successfully.")
     
     # Data Cleaning
