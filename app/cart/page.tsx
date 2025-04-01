@@ -87,21 +87,23 @@ export default function CartPage() {
                   </div>
 
                   <div className="flex items-center">
-                    <Button
+                    <button
                       onClick={() => handleQuantityChange(item._id, item.quantity - 1)}
                       className="w-8 h-8 flex items-center justify-center border rounded-l-md"
                       disabled={item.quantity <= 1}
+                      title="Decrease quantity"
                     >
                       <Minus className="h-3 w-3" />
-                    </Button>
+                    </button>
                     <span className="w-10 h-8 flex items-center justify-center border-t border-b">{item.quantity}</span>
-                    <Button
+                    <button
                       onClick={() => handleQuantityChange(item._id, item.quantity + 1)}
                       className="w-8 h-8 flex items-center justify-center border rounded-r-md"
                       disabled={item.quantity >= item.maxQuantity}
+                      title="Increase quantity"
                     >
                       <Plus className="h-3 w-3" />
-                    </Button>
+                    </button>
                   </div>
 
                   <div className="flex items-center">
